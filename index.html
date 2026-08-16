@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chuyển đổi Timestamp &amp; Ngày giờ</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⏳ Timestamp &amp; Ngày giờ</h1>
+            <p class="subtitle">Chuyển đổi qua lại · Hỗ trợ nhiều dòng · Chọn múi giờ IANA (tự động DST)</p>
+        </header>
+
+        <!-- Input -->
+        <section class="input-section">
+            <label for="inputBox">📥 Nhập dữ liệu</label>
+            <textarea id="inputBox" rows="5" placeholder="Ví dụ:&#10;1704067200&#10;2024-01-01 08:00:00&#10;1704067200000"></textarea>
+        </section>
+
+        <!-- Timezone Selection: Country + City -->
+        <div class="timezone-section">
+            <div class="timezone-row">
+                <div class="timezone-group">
+                    <label for="countrySelect">🌍 Quốc gia</label>
+                    <select id="countrySelect"></select>
+                </div>
+                <div class="timezone-group">
+                    <label for="citySelect">🏙️ Thành phố</label>
+                    <select id="citySelect"></select>
+                </div>
+            </div>
+            <div class="timezone-info" id="timezoneInfo">Đang tải dữ liệu múi giờ...</div>
+        </div>
+
+        <!-- Output Format Selector -->
+        <div class="format-select-section">
+            <label for="outputFormatSelect">📌 Định dạng hiển thị (khi chuyển timestamp → ngày giờ)</label>
+            <select id="outputFormatSelect">
+                <option value="default">Mặc định (YYYY-MM-DD HH:mm:ss)</option>
+                <option value="utc">UTC (YYYY-MM-DD HH:mm:ss UTC±HH:MM)</option>
+                <option value="iso8601">ISO 8601 (YYYY-MM-DDTHH:mm:ss ±HH:MM)</option>
+                <option value="rfc822">RFC 822 / RFC 1123 (ddd, DD MMM YYYY HH:mm:ss ±HHMM)</option>
+                <option value="rfc2822">RFC 2822 (dayweek, DD-MMM-YY HH:mm:ss ±HHMM)</option>
+                <option value="rfc3339">RFC 3339 (YYYY-MM-DDTHH:mm:ss ±HH:MM)</option>
+            </select>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-group">
+            <button class="btn btn-primary" id="toDateTimeBtn">
+                ⏰ Timestamp → Ngày giờ
+            </button>
+            <button class="btn btn-secondary" id="toTimestampBtn">
+                📅 Ngày giờ → Timestamp
+            </button>
+            <button class="btn btn-copy" id="copyBtn">
+                📋 Sao chép
+            </button>
+            <button class="btn btn-reset" id="resetBtn">
+                🔄 Đặt lại
+            </button>
+        </div>
+
+        <!-- Output -->
+        <section class="output-section">
+            <label for="outputBox">📤 Kết quả</label>
+            <textarea id="outputBox" rows="5" readonly placeholder="Kết quả sẽ hiển thị ở đây..."></textarea>
+        </section>
+
+        <footer>
+            <p>💡 Sử dụng IANA Timezone (hỗ trợ DST tự động).</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
